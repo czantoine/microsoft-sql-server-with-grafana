@@ -27,6 +27,10 @@ This is a comprehensive Grafana dashboard designed for monitoring Microsoft SQL 
 - Open Files Limit: Shows the limit of open files in the SQL Server.
 - Temp Tables Created On Disk: Visualizes the number of temporary tables created on disk.
 - Slow Queries: Displays the slow queries in the SQL Server.
+- Row Count: Shows the total number of rows across all tables in the database.
+- Total Space: Displays the total space (in MB) allocated to all tables in the database.
+- Used Space: Shows the space (in MB) currently used by all tables in the database.
+- Unused Space: Provides information on the unused space (in MB) within the allocated space for all tables in the database.
 
 You can directly find the [dashboard here](https://grafana.com/grafana/dashboards/21378-microsoft-sql-server-dashboard/) or use the ID: 21378.
 
