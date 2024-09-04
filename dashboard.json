@@ -173,6 +173,8 @@
       "fieldConfig": {
         "defaults": {
           "mappings": [],
+          "max": 10,
+          "min": 0,
           "thresholds": {
             "mode": "percentage",
             "steps": [
@@ -313,7 +315,7 @@
           "editorMode": "code",
           "format": "table",
           "rawQuery": true,
-          "rawSql": "SELECT \n    request_session_id AS SessionID,\n    resource_database_id AS DatabaseID,\n    resource_associated_entity_id AS EntityID,\n    request_mode AS LockType,\n    request_status AS Status\nFROM sys.dm_tran_locks;\n",
+          "rawSql": "SELECT \n    request_session_id AS 'Session ID',\n    resource_database_id AS 'Database ID',\n    resource_associated_entity_id AS 'Entity ID',\n    request_mode AS LockType,\n    request_status AS Status\nFROM sys.dm_tran_locks;\n",
           "refId": "A",
           "sql": {
             "columns": [
@@ -345,19 +347,27 @@
       "fieldConfig": {
         "defaults": {
           "color": {
-            "mode": "continuous-BlYlRd"
+            "mode": "thresholds"
+
           },
           "mappings": [],
+          "max": 100000,
+          "min": 0,
           "thresholds": {
-            "mode": "absolute",
+            "mode": "percentage",
+
             "steps": [
               {
                 "color": "green",
                 "value": null
               },
               {
+                "color": "orange",
+                "value": 70
+              },
+              {
                 "color": "red",
-                "value": 80
+                "value": 85
               }
             ]
           },
@@ -366,19 +376,19 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 10,
+        "h": 4,
         "w": 4,
         "x": 0,
         "y": 4
       },
-      "id": 13,
+      "id": 15,
       "options": {
-        "displayMode": "lcd",
-        "maxVizHeight": 300,
-        "minVizHeight": 16,
-        "minVizWidth": 8,
-        "namePlacement": "auto",
-        "orientation": "horizontal",
+
+
+        "minVizHeight": 75,
+        "minVizWidth": 75,
+
+        "orientation": "auto",
         "reduceOptions": {
           "calcs": [
             "lastNotNull"
@@ -386,9 +396,11 @@
           "fields": "",
           "values": false
         },
-        "showUnfilled": true,
-        "sizing": "auto",
-        "valueMode": "color"
+
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true,
+        "sizing": "auto"
+
       },
       "pluginVersion": "10.3.1",
       "targets": [
@@ -401,7 +413,8 @@
           "editorMode": "code",
           "format": "table",
           "rawQuery": true,
-          "rawSql": "SELECT \n    CAST(COUNT(*) * 8.0 / 1024 AS DECIMAL(10, 2)) AS BufferPoolUsed_MB,\n    CAST(SUM(CASE WHEN is_modified = 1 THEN 1 ELSE 0 END) * 8.0 / 1024 AS DECIMAL(10, 2)) AS DirtyBuffer_MB,\n    CAST(COUNT(*) * 8.0 / 1024 AS DECIMAL(10, 2)) AS BufferPoolTotal_MB,\n    CAST(SUM(CASE WHEN is_modified = 1 THEN 1 ELSE 0 END) * 8.0 / 1024 AS DECIMAL(10, 2)) AS DirtyBufferUsed_MB\nFROM sys.dm_os_buffer_descriptors\nWHERE database_id > 4;\n",
+          "rawSql": "SELECT \n    ISNULL(t.NAME, 'Total') AS TableName,\n    ISNULL(s.NAME, '') AS SchemaName,\n    SUM(p.rows) AS RowCounts\nFROM \n    sys.tables t\nINNER JOIN      \n    sys.indexes i ON t.OBJECT_ID = i.object_id\nINNER JOIN \n    sys.partitions p ON i.object_id = p.OBJECT_ID AND i.index_id = p.index_id\nINNER JOIN \n    sys.schemas s ON t.schema_id = s.schema_id\nGROUP BY \n    ROLLUP(t.Name, s.Name)\nORDER BY \n    CASE WHEN t.Name IS NULL THEN 1 ELSE 0 END,\n    RowCounts DESC;\n",
+
           "refId": "A",
           "sql": {
             "columns": [
@@ -422,8 +435,9 @@
           }
         }
       ],
-      "title": "Buffer Pool Hit Rate",
-      "type": "bargauge"
+      "title": "Row Count",
+
+      "type": "gauge"
     },
     {
       "datasource": {
@@ -546,28 +560,29 @@
       "fieldConfig": {
         "defaults": {
           "color": {
-            "mode": "palette-classic"
-          },
-          "custom": {
-            "axisBorderShow": false,
-            "axisCenteredZero": false,
-            "axisColorMode": "text",
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "fillOpacity": 80,
-            "gradientMode": "none",
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
-            },
-            "lineWidth": 1,
-            "scaleDistribution": {
-              "type": "linear"
-            },
-            "thresholdsStyle": {
-              "mode": "off"
-            }
+            "mode": "continuous-BlYlRd"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
           },
           "mappings": [],
           "thresholds": {
@@ -583,38 +598,53 @@
               }
             ]
           },
-          "unit": "short",
+
           "unitScale": true
         },
         "overrides": []
       },
       "gridPos": {
-        "h": 9,
-        "w": 9,
+        "h": 10,
+        "w": 4,
         "x": 0,
-        "y": 14
+        "y": 8
+
       },
-      "id": 7,
+      "id": 13,
       "options": {
-        "barRadius": 0,
-        "barWidth": 0.97,
-        "fullHighlight": false,
-        "groupWidth": 0.7,
-        "legend": {
-          "calcs": [],
-          "displayMode": "list",
-          "placement": "right",
-          "showLegend": true
+
+
+
+
+
+        "displayMode": "lcd",
+        "maxVizHeight": 300,
+        "minVizHeight": 16,
+        "minVizWidth": 8,
+        "namePlacement": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+
+
+
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
         },
-        "orientation": "auto",
-        "showValue": "never",
-        "stacking": "none",
-        "tooltip": {
-          "mode": "single",
-          "sort": "none"
-        },
-        "xTickLabelRotation": 0,
-        "xTickLabelSpacing": 0
+        "showUnfilled": true,
+        "sizing": "auto",
+        "valueMode": "color"
+
+
+
+
+
+
+
+
+
       },
       "pluginVersion": "10.3.1",
       "targets": [
@@ -627,7 +657,8 @@
           "editorMode": "code",
           "format": "table",
           "rawQuery": true,
-          "rawSql": "SELECT \n    (total_physical_memory_kb / 1024) AS Total_Physical_Memory_MB,\n    (available_physical_memory_kb / 1024) AS Available_Physical_Memory_MB,\n    (total_page_file_kb / 1024) AS Total_Page_File_MB,\n    (available_page_file_kb / 1024) AS Available_Page_File_MB,\n    (system_memory_state_desc) AS System_Memory_State_Description\nFROM sys.dm_os_sys_memory;\n",
+          "rawSql": "SELECT \n    CAST(COUNT(*) * 8.0 / 1024 AS DECIMAL(10, 2)) AS 'Buffer Pool Used MB',\n    CAST(SUM(CASE WHEN is_modified = 1 THEN 1 ELSE 0 END) * 8.0 / 1024 AS DECIMAL(10, 2)) AS 'Dirty Buffer MB',\n    CAST(COUNT(*) * 8.0 / 1024 AS DECIMAL(10, 2)) AS 'Buffer Pool Total MB',\n    CAST(SUM(CASE WHEN is_modified = 1 THEN 1 ELSE 0 END) * 8.0 / 1024 AS DECIMAL(10, 2)) AS 'Dirty Buffer Used MB'\nFROM sys.dm_os_buffer_descriptors\nWHERE database_id > 4;\n",
+
           "refId": "A",
           "sql": {
             "columns": [
@@ -648,8 +679,98 @@
           }
         }
       ],
-      "title": "Buffer Pool Usage",
-      "type": "barchart"
+      "title": "Buffer Pool Hit Rate",
+      "type": "bargauge"
+    },
+    {
+      "datasource": {
+        "type": "mssql",
+        "uid": "${DS_MSSQL}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "continuous-GrYlRd"
+          },
+          "mappings": [],
+          "max": 100,
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unitScale": true
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 5,
+        "x": 4,
+        "y": 14
+      },
+      "id": 8,
+      "options": {
+        "displayMode": "lcd",
+        "maxVizHeight": 300,
+        "minVizHeight": 16,
+        "minVizWidth": 8,
+        "namePlacement": "auto",
+        "orientation": "vertical",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showUnfilled": true,
+        "sizing": "auto",
+        "valueMode": "color"
+      },
+      "pluginVersion": "10.3.1",
+      "targets": [
+        {
+          "dataset": "WEM",
+          "datasource": {
+            "type": "mssql",
+            "uid": "${DS_MSSQL}"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT \n    (CAST(SUM(CASE WHEN usecounts > 0 THEN 1 ELSE 0 END) AS FLOAT) / COUNT(*)) * 100 AS Cache_Hit_Ratio\nFROM sys.dm_exec_cached_plans\nWHERE objtype = 'Adhoc'\n    OR objtype = 'Prepared';\n",
+          "refId": "A",
+          "sql": {
+            "columns": [
+              {
+                "parameters": [],
+                "type": "function"
+              }
+            ],
+            "groupBy": [
+              {
+                "property": {
+                  "type": "string"
+                },
+                "type": "groupBy"
+              }
+            ],
+            "limit": 50
+          }
+        }
+      ],
+      "title": "Query Cache Hit Rate",
+      "type": "bargauge"
     },
     {
       "datasource": {
@@ -681,7 +802,7 @@
       },
       "gridPos": {
         "h": 3,
-        "w": 6,
+        "w": 3,
         "x": 9,
         "y": 14
       },
@@ -738,6 +859,94 @@
       ],
       "title": "Running Threads",
       "type": "bargauge"
+    },
+    {
+      "datasource": {
+        "type": "mssql",
+        "uid": "${DS_MSSQL}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "mappings": [],
+          "max": 200,
+          "min": 0,
+          "thresholds": {
+            "mode": "percentage",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "orange",
+                "value": 70
+              },
+              {
+                "color": "red",
+                "value": 85
+              }
+            ]
+          },
+          "unitScale": true
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 3,
+        "x": 12,
+        "y": 14
+      },
+      "id": 1,
+      "options": {
+        "minVizHeight": 75,
+        "minVizWidth": 75,
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true,
+        "sizing": "auto"
+      },
+      "pluginVersion": "10.3.1",
+      "targets": [
+        {
+          "dataset": "WEM",
+          "datasource": {
+            "type": "mssql",
+            "uid": "${DS_MSSQL}"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT COUNT(session_id) AS Connections\nFROM sys.dm_exec_sessions\nWHERE is_user_process = 1;\n",
+          "refId": "A",
+          "sql": {
+            "columns": [
+              {
+                "parameters": [],
+                "type": "function"
+              }
+            ],
+            "groupBy": [
+              {
+                "property": {
+                  "type": "string"
+                },
+                "type": "groupBy"
+              }
+            ],
+            "limit": 50
+          }
+        }
+      ],
+      "title": "Current Connections",
+      "type": "gauge"
     },
     {
       "datasource": {
@@ -881,7 +1090,7 @@
       },
       "gridPos": {
         "h": 3,
-        "w": 6,
+        "w": 3,
         "x": 9,
         "y": 17
       },
@@ -950,6 +1159,119 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "fillOpacity": 80,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineWidth": 1,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "short",
+          "unitScale": true
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 9,
+        "x": 0,
+        "y": 18
+      },
+      "id": 7,
+      "options": {
+        "barRadius": 0,
+        "barWidth": 0.97,
+        "fullHighlight": false,
+        "groupWidth": 0.7,
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "right",
+          "showLegend": true
+        },
+        "orientation": "auto",
+        "showValue": "never",
+        "stacking": "none",
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        },
+        "xTickLabelRotation": 0,
+        "xTickLabelSpacing": 0
+      },
+      "pluginVersion": "10.3.1",
+      "targets": [
+        {
+          "dataset": "WEM",
+          "datasource": {
+            "type": "mssql",
+            "uid": "${DS_MSSQL}"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT \n    (total_physical_memory_kb / 1024) AS 'Total Physical Memory MB',\n    (available_physical_memory_kb / 1024) AS 'Available Physical Memory MB',\n    (total_page_file_kb / 1024) AS 'Total Page File MB',\n    (available_page_file_kb / 1024) AS 'Available Page File MB',\n    (system_memory_state_desc) AS 'System Memory State Description'\nFROM sys.dm_os_sys_memory;\n",
+          "refId": "A",
+          "sql": {
+            "columns": [
+              {
+                "parameters": [],
+                "type": "function"
+              }
+            ],
+            "groupBy": [
+              {
+                "property": {
+                  "type": "string"
+                },
+                "type": "groupBy"
+              }
+            ],
+            "limit": 50
+          }
+        }
+      ],
+      "title": "Buffer Pool Usage",
+      "type": "barchart"
+    },
+    {
+      "datasource": {
+        "type": "mssql",
+        "uid": "${DS_MSSQL}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
             "hideFrom": {
               "legend": false,
               "tooltip": false,
@@ -1003,7 +1325,7 @@
           "editorMode": "code",
           "format": "table",
           "rawQuery": true,
-          "rawSql": "SELECT \n    SUM(user_objects_alloc_page_count) AS UserObjectPages,\n    SUM(internal_objects_alloc_page_count) AS InternalObjectPages\nFROM sys.dm_db_session_space_usage;\n",
+          "rawSql": "SELECT \n    SUM(user_objects_alloc_page_count) AS 'User Object Pages',\n    SUM(internal_objects_alloc_page_count) AS 'Internal Object Pages'\nFROM sys.dm_db_session_space_usage;\n",
           "refId": "A",
           "sql": {
             "columns": [
@@ -1026,177 +1348,177 @@
       ],
       "title": "Temp Tables Created On Disk",
       "type": "piechart"
-    },
-    {
-      "datasource": {
-        "type": "mssql",
-        "uid": "${DS_MSSQL}"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "mappings": [],
-          "thresholds": {
-            "mode": "percentage",
-            "steps": [
-              {
-                "color": "green"
-              },
-              {
-                "color": "orange",
-                "value": 70
-              },
-              {
-                "color": "red",
-                "value": 85
-              }
-            ]
-          },
-          "unit": "percent",
-          "unitScale": true
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 9,
-        "w": 5,
-        "x": 0,
-        "y": 23
-      },
-      "id": 8,
-      "options": {
-        "minVizHeight": 75,
-        "minVizWidth": 75,
-        "orientation": "auto",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "showThresholdLabels": false,
-        "showThresholdMarkers": true,
-        "sizing": "auto"
-      },
-      "pluginVersion": "10.3.1",
-      "targets": [
-        {
-          "dataset": "WEM",
-          "datasource": {
-            "type": "mssql",
-            "uid": "${DS_MSSQL}"
-          },
-          "editorMode": "code",
-          "format": "table",
-          "rawQuery": true,
-          "rawSql": "SELECT \n    (CAST(SUM(CASE WHEN usecounts > 0 THEN 1 ELSE 0 END) AS FLOAT) / COUNT(*)) * 100 AS Cache_Hit_Ratio\nFROM sys.dm_exec_cached_plans\nWHERE objtype = 'Adhoc'\n    OR objtype = 'Prepared';\n",
-          "refId": "A",
-          "sql": {
-            "columns": [
-              {
-                "parameters": [],
-                "type": "function"
-              }
-            ],
-            "groupBy": [
-              {
-                "property": {
-                  "type": "string"
-                },
-                "type": "groupBy"
-              }
-            ],
-            "limit": 50
-          }
-        }
-      ],
-      "title": "Query Cache Hit Rate",
-      "type": "gauge"
-    },
-    {
-      "datasource": {
-        "type": "mssql",
-        "uid": "${DS_MSSQL}"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "mappings": [],
-          "thresholds": {
-            "mode": "percentage",
-            "steps": [
-              {
-                "color": "green"
-              },
-              {
-                "color": "orange",
-                "value": 70
-              },
-              {
-                "color": "red",
-                "value": 85
-              }
-            ]
-          },
-          "unitScale": true
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 9,
-        "w": 4,
-        "x": 5,
-        "y": 23
-      },
-      "id": 1,
-      "options": {
-        "minVizHeight": 75,
-        "minVizWidth": 75,
-        "orientation": "auto",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "showThresholdLabels": false,
-        "showThresholdMarkers": true,
-        "sizing": "auto"
-      },
-      "pluginVersion": "10.3.1",
-      "targets": [
-        {
-          "dataset": "WEM",
-          "datasource": {
-            "type": "mssql",
-            "uid": "${DS_MSSQL}"
-          },
-          "editorMode": "code",
-          "format": "table",
-          "rawQuery": true,
-          "rawSql": "SELECT COUNT(session_id) AS Connections\nFROM sys.dm_exec_sessions\nWHERE is_user_process = 1;\n",
-          "refId": "A",
-          "sql": {
-            "columns": [
-              {
-                "parameters": [],
-                "type": "function"
-              }
-            ],
-            "groupBy": [
-              {
-                "property": {
-                  "type": "string"
-                },
-                "type": "groupBy"
-              }
-            ],
-            "limit": 50
-          }
-        }
-      ],
-      "title": "Current Connections",
-      "type": "gauge"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     },
     {
       "datasource": {
@@ -1213,7 +1535,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
@@ -1280,7 +1603,281 @@
           }
         }
       ],
-      "title": "Slow Queries",
+
+      "title": "Top 10 Longest Running Queries",
+      "type": "bargauge"
+    },
+    {
+      "datasource": {
+        "type": "mssql",
+        "uid": "${DS_MSSQL}"
+      },
+      "description": "modify the max with the size of your disk associated with the database",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "continuous-GrYlRd"
+          },
+          "mappings": [],
+          "max": 1000,
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unitScale": true
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 3,
+        "x": 0,
+        "y": 25
+      },
+      "id": 16,
+      "options": {
+        "displayMode": "lcd",
+        "maxVizHeight": 300,
+        "minVizHeight": 16,
+        "minVizWidth": 8,
+        "namePlacement": "auto",
+        "orientation": "vertical",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showUnfilled": true,
+        "sizing": "auto",
+        "valueMode": "color"
+      },
+      "pluginVersion": "10.3.1",
+      "targets": [
+        {
+          "dataset": "WEM",
+          "datasource": {
+            "type": "mssql",
+            "uid": "${DS_MSSQL}"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT \n    ISNULL(t.NAME, 'Total') AS TableName,\n    ISNULL(s.NAME, '') AS SchemaName,\n    CAST(ROUND(((SUM(a.total_pages) * 8) / 1024.0), 2) AS DECIMAL(18, 2)) AS TotalSpaceMB\nFROM \n    sys.tables t\nINNER JOIN      \n    sys.indexes i ON t.OBJECT_ID = i.object_id\nINNER JOIN \n    sys.partitions p ON i.object_id = p.OBJECT_ID AND i.index_id = p.index_id\nINNER JOIN \n    sys.allocation_units a ON p.partition_id = a.container_id\nINNER JOIN \n    sys.schemas s ON t.schema_id = s.schema_id\nGROUP BY \n    ROLLUP(t.Name, s.Name)\nORDER BY \n    CASE WHEN t.Name IS NULL THEN 1 ELSE 0 END,\n    TotalSpaceMB DESC;\n",
+          "refId": "A",
+          "sql": {
+            "columns": [
+              {
+                "parameters": [],
+                "type": "function"
+              }
+            ],
+            "groupBy": [
+              {
+                "property": {
+                  "type": "string"
+                },
+                "type": "groupBy"
+              }
+            ],
+            "limit": 50
+          }
+        }
+      ],
+      "title": "Total Space MB",
+      "type": "bargauge"
+    },
+    {
+      "datasource": {
+        "type": "mssql",
+        "uid": "${DS_MSSQL}"
+      },
+      "description": "modify the max with the size of your disk associated with the database",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "continuous-GrYlRd"
+          },
+          "mappings": [],
+          "max": 1000,
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unitScale": true
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 3,
+        "y": 25
+      },
+      "id": 17,
+      "options": {
+        "displayMode": "lcd",
+        "maxVizHeight": 300,
+        "minVizHeight": 16,
+        "minVizWidth": 8,
+        "namePlacement": "auto",
+        "orientation": "vertical",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showUnfilled": true,
+        "sizing": "auto",
+        "valueMode": "color"
+      },
+      "pluginVersion": "10.3.1",
+      "targets": [
+        {
+          "dataset": "WEM",
+          "datasource": {
+            "type": "mssql",
+            "uid": "${DS_MSSQL}"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT \n    ISNULL(t.NAME, 'Total') AS TableName,\n    ISNULL(s.NAME, '') AS SchemaName,\n    CAST(ROUND(((SUM(a.used_pages) * 8) / 1024.0), 2) AS DECIMAL(18, 2)) AS UsedSpaceMB\nFROM \n    sys.tables t\nINNER JOIN      \n    sys.indexes i ON t.OBJECT_ID = i.object_id\nINNER JOIN \n    sys.partitions p ON i.object_id = p.OBJECT_ID AND i.index_id = p.index_id\nINNER JOIN \n    sys.allocation_units a ON p.partition_id = a.container_id\nINNER JOIN \n    sys.schemas s ON t.schema_id = s.schema_id\nGROUP BY \n    ROLLUP(t.Name, s.Name)\nORDER BY \n    CASE WHEN t.Name IS NULL THEN 1 ELSE 0 END,\n    UsedSpaceMB DESC;\n",
+          "refId": "A",
+          "sql": {
+            "columns": [
+              {
+                "parameters": [],
+                "type": "function"
+              }
+            ],
+            "groupBy": [
+              {
+                "property": {
+                  "type": "string"
+                },
+                "type": "groupBy"
+              }
+            ],
+            "limit": 50
+          }
+        }
+      ],
+      "title": "Used Space MB",
+      "type": "bargauge"
+    },
+    {
+      "datasource": {
+        "type": "mssql",
+        "uid": "${DS_MSSQL}"
+      },
+      "description": "modify the max with the size of your disk associated with the database",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "continuous-GrYlRd"
+          },
+          "mappings": [],
+          "max": 1000,
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unitScale": true
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 6,
+        "x": 3,
+        "y": 29
+      },
+      "id": 18,
+      "options": {
+        "displayMode": "lcd",
+        "maxVizHeight": 300,
+        "minVizHeight": 16,
+        "minVizWidth": 8,
+        "namePlacement": "auto",
+        "orientation": "vertical",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showUnfilled": true,
+        "sizing": "auto",
+        "valueMode": "color"
+      },
+      "pluginVersion": "10.3.1",
+      "targets": [
+        {
+          "dataset": "WEM",
+          "datasource": {
+            "type": "mssql",
+            "uid": "${DS_MSSQL}"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT \n    ISNULL(t.NAME, 'Total') AS TableName,\n    ISNULL(s.NAME, '') AS SchemaName,\n    CAST(ROUND(((SUM(a.total_pages - a.used_pages) * 8) / 1024.0), 2) AS DECIMAL(18, 2)) AS UnusedSpaceMB\nFROM \n    sys.tables t\nINNER JOIN      \n    sys.indexes i ON t.OBJECT_ID = i.object_id\nINNER JOIN \n    sys.partitions p ON i.object_id = p.OBJECT_ID AND i.index_id = p.index_id\nINNER JOIN \n    sys.allocation_units a ON p.partition_id = a.container_id\nINNER JOIN \n    sys.schemas s ON t.schema_id = s.schema_id\nGROUP BY \n    ROLLUP(t.Name, s.Name)\nORDER BY \n    CASE WHEN t.Name IS NULL THEN 1 ELSE 0 END,\n    UnusedSpaceMB DESC;\n",
+          "refId": "A",
+          "sql": {
+            "columns": [
+              {
+                "parameters": [],
+                "type": "function"
+              }
+            ],
+            "groupBy": [
+              {
+                "property": {
+                  "type": "string"
+                },
+                "type": "groupBy"
+              }
+            ],
+            "limit": 50
+          }
+        }
+      ],
+      "title": "Unused Space MB",
       "type": "bargauge"
     }
   ],
@@ -1291,13 +1888,13 @@
     "list": []
   },
   "time": {
-    "from": "now-1h",
+    "from": "now-3h",
     "to": "now"
   },
   "timepicker": {},
   "timezone": "",
   "title": "Microsoft SQL Server Dashboard",
   "uid": "bff36b75-3eae-44b8-994b-c7a87274d162",
-  "version": 13,
+  "version": 16,
   "weekStart": ""
 }
