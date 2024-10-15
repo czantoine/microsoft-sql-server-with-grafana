@@ -1,4 +1,4 @@
-FROM grafana/grafana:latest
+FROM --platform=linux/amd64 grafana/grafana:latest
 
 USER root
 
