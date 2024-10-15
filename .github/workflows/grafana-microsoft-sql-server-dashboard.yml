@@ -34,6 +34,6 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           context: .
-          file: /quickstart/grafana/Dockerfile
+          file: ./quickstart/grafana/Dockerfile
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/grafana-microsoft-sql-server-dashboard:latest

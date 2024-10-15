@@ -34,6 +34,6 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           context: .
-          file: /quickstart/db/Dockerfile
+          file: ./quickstart/db/Dockerfile
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/mssql-demo:latest
