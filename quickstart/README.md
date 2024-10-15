@@ -1,5 +1,8 @@
 # Example usage of Monitoring with Grafana and Microsoft SQL Server
 
+![Grafana Microsoft SQL Server Dashboard image](https://github.com/github/docs/actions/workflows/grafana-microsoft-sql-server-dashboard.yml/badge.svg)
+![Microsoft SQL Database Demo](https://github.com/github/docs/actions/workflows/mssql-demo.yml/badge.svg)
+
 # Requirements
 
 - **~2 min of your time**
