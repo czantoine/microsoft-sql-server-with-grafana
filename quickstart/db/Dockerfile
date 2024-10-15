@@ -8,9 +8,9 @@ ENV ACCEPT_EULA=Y
 ENV SA_PASSWORD=YourStrong@Passw0rd
 ENV MSSQL_PID=Developer
 
-COPY db/create_db.sql .
-COPY db/insert_data.sql .
-COPY db/init-db.sh .
+COPY ./quickstart/db/create_db.sql .
+COPY ./quickstart/db/insert_data.sql .
+COPY ./quickstart/db/init-db.sh .
 
 RUN chmod +x ./init-db.sh
 
