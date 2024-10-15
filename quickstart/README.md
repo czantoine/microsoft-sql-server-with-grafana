@@ -1,7 +1,7 @@
 # Example usage of Monitoring with Grafana and Microsoft SQL Server
 
-![Grafana Microsoft SQL Server Dashboard image](https://github.com/github/docs/actions/workflows/grafana-microsoft-sql-server-dashboard.yml/badge.svg)
-![Microsoft SQL Database Demo](https://github.com/github/docs/actions/workflows/mssql-demo.yml/badge.svg)
+[![grafana-microsoft-sql-server-dashboard-docker](https://github.com/czantoine/microsoft-sql-server-with-grafana/actions/workflows/grafana-microsoft-sql-server-dashboard.yml/badge.svg)](https://github.com/czantoine/microsoft-sql-server-with-grafana/actions/workflows/grafana-microsoft-sql-server-dashboard.yml)
+[![mssql-demo-docker](https://github.com/czantoine/microsoft-sql-server-with-grafana/actions/workflows/mssql-demo.yml/badge.svg)](https://github.com/czantoine/microsoft-sql-server-with-grafana/actions/workflows/mssql-demo.yml)
 
 # Requirements
 
