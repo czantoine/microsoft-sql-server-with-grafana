@@ -1,0 +1,26 @@
+version: '3.7'
+
+services:
+  sqlserver:
+    image: czantoine/mssql-demo
+    container_name: sqlserver-demo
+    ports:
+      - "1433:1433"
+    networks:
+      - monitoring
+
+  grafana:
+    image: czantoine/grafana-microsoft-sql-server-dashboard
+    container_name: grafana
+    environment:
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_SECURITY_ADMIN_PASSWORD=admin_password
+      - GF_AUTH_ANONYMOUS_ENABLED=true
+    ports:
+      - "3009:3000"
+    networks:
+      - monitoring
+
+networks:
+  monitoring:
+    driver: bridge

@@ -6,31 +6,76 @@
 
 # Monitoring Microsoft SQL Server with Grafana
 
+As of October 2024, this [Grafana dashboard](https://grafana.com/grafana/dashboards/21378-microsoft-sql-server-dashboard/) has been downloaded over **700 times** since its release on June 20, 2024.
+
+Example of the metrics you should expect to retrieve; the detailed list of exported metrics is maintained [here](docs/metrics.md).
+
+A Docker Compose setup is available if you wish to test the dashboard. Available [here](quickstart/README.md).
+
 ## Features
 
 This is a comprehensive Grafana dashboard designed for monitoring Microsoft SQL Server. It provides real-time insights into your SQL Server environment, making it easy for both technical and non-technical users to understand the performance of their SQL Server instances.
 
-- Uptime: Displays the SQL Server start time.
-- Queries per Second: Shows the average duration of queries and their execution count.
-- Table Locks: Provides information about the current table locks in the system.
-- Buffer Pool Hit Rate: Visualizes the rate of hits in the buffer pool.
-- Index Usage: Presents the usage statistics of indexes.
-- Buffer Pool Usage: Monitors the usage of the buffer pool.
-- CPU Utilization: Tracks the CPU usage of the SQL Server.
-- Disk I/O: Monitors the disk input/output operations.
-- Network Usage: Displays the network traffic related to the SQL Server.
-- Memory Usage: Provides insights into the memory consumption of the SQL Server.
-- Query Cache: Displays the query cache statistics in the SQL Server.
-- Current Connections: Shows the current connections to the SQL Server.
-- Table Locks: Provides information about the current table locks in the system.
-- Running Threads: Displays the number of running threads in the SQL Server.
-- Open Files Limit: Shows the limit of open files in the SQL Server.
-- Temp Tables Created On Disk: Visualizes the number of temporary tables created on disk.
-- Slow Queries: Displays the slow queries in the SQL Server.
-- Row Count: Shows the total number of rows across all tables in the database.
-- Total Space: Displays the total space (in MB) allocated to all tables in the database.
-- Used Space: Shows the space (in MB) currently used by all tables in the database.
-- Unused Space: Provides information on the unused space (in MB) within the allocated space for all tables in the database.
+### General
+- **Database name**: Displays the database name.
+- **Uptime**: Displays the SQL Server start time.
+- **Active User Sessions**: Shows the count of active user sessions by login name.
+
+![grafana_dashboard_microsoft_sql_server_section_general](docs/images/grafana_dashboard_microsoft_sql_server_section_general.png)
+
+### Query Performance
+- **Top 10 Longest Running Queries**: Lists the top 10 queries with the longest average duration.
+- **Queries per Second**: Provides average duration and execution count of queries.
+- **Query Cache Hit Rate**: Visualizes the cache hit ratio for queries.
+- **Query Plan Cache Efficiency**: Shows the efficiency of cached query plans.
+- **Wait Stats Overview**: Displays an overview of wait statistics in SQL Server.
+- **Current Connections**: Indicates the current number of connections to the SQL Server.
+- **Query Latency**: Visualizes latency for recent queries.
+- **Execution Plans Performance**: Monitors performance metrics of executed plans.
+
+![grafana_dashboard_microsoft_sql_server_section_query_performance](docs/images/grafana_dashboard_microsoft_sql_server_section_query_performance.png)
+
+### Server Performance
+- **Query Latency**: Displays the top 10 longest running queries based on total elapsed time.
+- **Running Threads**: Displays the number of running threads in the SQL Server.
+- **Open Files Limit**: Shows the count of currently open files.
+- **Active Transactions**: Provides details on active transactions in the system.
+- **Temp Tables Created On Disk**: Monitors the number of temporary tables created on disk.
+- **Table Locks**: Displays information on current table locks.
+- **Waiting Times Monitoring**: Provides an overview of wait statistics in SQL Server.
+
+![grafana_dashboard_microsoft_sql_server_section_server_performance](docs/images/grafana_dashboard_microsoft_sql_server_section_server_performance.png)
+
+### Buffer and Index Management
+- **Buffer Pool Hit Rate**: Visualizes the hit rate of the buffer pool.
+- **Buffer Pool Usage**: Monitors the overall usage of the buffer pool.
+- **Index Usage**: Displays usage statistics for database indexes.
+- **Page Life Expectancy**: Shows the average time pages stay in the buffer pool.
+
+![grafana_dashboard_microsoft_sql_server_section_buffer_and_index_management](docs/images/grafana_dashboard_microsoft_sql_server_section_buffer_and_index_management.png)
+
+### Database Space Usage
+- **Total Space**: Displays the total space allocated to all tables in the database.
+- **Used Space**: Shows the space currently used by all tables.
+- **Unused Space**: Provides information on unused space in the database.
+- **Memory Grants Pending**: Indicates the count of pending memory grants.
+- **Transaction Log Space Usage**: Displays the usage of transaction log space.
+- **Database File Usage**: Shows details about database files and their sizes.
+- **Table Locks**: Provides information on current table locks.
+- **Backups Status**: Displays the status of recent database backups.
+- **Memory Usage**: Visualizes overall memory usage in SQL Server.
+- **TempDB Disk Monitoring**: Monitors I/O stalls for TempDB files.
+- 
+![grafana_dashboard_microsoft_sql_server_section_database_space_usage](docs/images/grafana_dashboard_microsoft_sql_server_section_database_space_usage.png)
+
+### Jobs Monitoring
+- **Job Execution Frequency**: Displays the execution count of jobs over the last week.
+- **Job Execution History Duration**: Shows job execution history along with durations.
+- **Jobs in Progress**: Lists jobs that are currently running along with their durations.
+- **Failed Jobs Overview**: Provides an overview of recently failed jobs and their error messages.
+- **Scheduled and Running Jobs**: Displays the status of scheduled and currently running jobs.
+
+![grafana_dashboard_microsoft_sql_server_section_jobs_monitoring](docs/images/grafana_dashboard_microsoft_sql_server_section_jobs_monitoring.png)
 
 You can directly find the [dashboard here](https://grafana.com/grafana/dashboards/21378-microsoft-sql-server-dashboard/) or use the ID: 21378.
 
