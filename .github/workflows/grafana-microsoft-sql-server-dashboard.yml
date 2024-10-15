@@ -34,6 +34,5 @@ jobs:
         with:
           context: ${{ github.workspace }}/quickstart/grafana/
           file: ${{ github.workspace }}Dockerfile
-          file: Dockerfile
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/grafana-microsoft-sql-server-dashboard:latest
