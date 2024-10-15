@@ -18,8 +18,8 @@ docker-compose up -d
 
 You should now have a stack completely configured and accessible at these locations:
 
-- `grafana-microsoft-sql-server-dashboard`: [http://localhost:3009](http://localhost:3009) (if you want/need to login, creds are ```admin/admin_password```)
-- `mssql-demo`: localhost:1433 (if you want/need to login, creds are ```sa/YourStrong@Passw0rd```)
+- `grafana-microsoft-sql-server-dashboard`: [http://localhost:3009](http://localhost:3009) (if you want/need to login, creds are `admin/admin_password`)
+- `mssql-demo`: localhost:1433 (if you want/need to login, creds are `sa/YourStrong@Passw0rd`)
 
 ## Use and troubleshoot
 
