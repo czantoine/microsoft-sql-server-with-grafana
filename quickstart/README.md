@@ -26,6 +26,8 @@ It might take up to **1 minute** for the database to initialize and for metrics 
 - `grafana-microsoft-sql-server-dashboard`: [http://localhost:3009](http://localhost:3009) (if you want/need to login, creds are `admin/admin_password`)
 - `mssql-demo`: localhost:1433 (if you want/need to login, creds are `sa/YourStrong@Passw0rd`)
 
+There are currently **no data available for the Jobs Monitoring** section of the dashboard.
+
 ## Use and troubleshoot
 
 ### Validate that containers are running
