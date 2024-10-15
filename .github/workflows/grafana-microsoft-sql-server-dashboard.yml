@@ -29,11 +29,14 @@ jobs:
       -
         name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
+      - 
+        name: List files for debugging
+        run: ls -la ./quickstart/grafana/
       -
         name: Build and push
         uses: docker/build-push-action@v4
         with:
-          context: ./quickstart/grafana
+          context: ./quickstart/grafana/
           file: Dockerfile
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/grafana-microsoft-sql-server-dashboard:latest
