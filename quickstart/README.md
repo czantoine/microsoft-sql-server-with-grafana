@@ -21,6 +21,8 @@ docker-compose up -d
 
 You should now have a stack completely configured and accessible at these locations:
 
+It might take up to **1 minute** for the database to initialize and for metrics to start appearing in Grafana. During this time, the dashboard may not show any data.
+
 - `grafana-microsoft-sql-server-dashboard`: [http://localhost:3009](http://localhost:3009) (if you want/need to login, creds are `admin/admin_password`)
 - `mssql-demo`: localhost:1433 (if you want/need to login, creds are `sa/YourStrong@Passw0rd`)
 
