@@ -33,7 +33,7 @@ jobs:
         name: Build and push
         uses: docker/build-push-action@v4
         with:
-          context: ./quickstart/db/
-          file: Dockerfile
+          context: .
+          file: ${{ github.workspace }}/quickstart/db/Dockerfile
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/mssql-demo:latest
