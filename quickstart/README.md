@@ -38,7 +38,7 @@ Example dashboards should be available at these addresses:
 
 - **Monitoring dashboard** - [http://localhost:3009/d/microsoft-sql-server-dashboard](http://localhost:3009/d/bff36b75-3eae-44b8-994b-c7a87274d162/microsoft-sql-server-dashboard)
 
-![grafana_dashboard_microsoft_sql_server_example](docs/images/grafana_dashboard_microsoft_sql_server_example.png)
+![grafana_dashboard_microsoft_sql_server_example](/docs/images/grafana_dashboard_microsoft_sql_server_example.png)
 
 ## Cleanup
 
