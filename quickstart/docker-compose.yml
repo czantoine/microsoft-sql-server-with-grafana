@@ -4,6 +4,7 @@ services:
   sqlserver:
     image: czantoine/mssql-demo
     container_name: sqlserver-demo
+    platform: linux/amd64
     ports:
       - "1433:1433"
     networks:
@@ -12,6 +13,7 @@ services:
   grafana:
     image: czantoine/grafana-microsoft-sql-server-dashboard
     container_name: grafana
+    platform: linux/amd64
     environment:
       - GF_SECURITY_ADMIN_USER=admin
       - GF_SECURITY_ADMIN_PASSWORD=admin_password

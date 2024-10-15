@@ -1,4 +1,4 @@
-FROM --platform=linux/amd64 mcr.microsoft.com/mssql/server:2019-latest
+FROM mcr.microsoft.com/mssql/server:2019-latest
 
 WORKDIR /tmp
 
