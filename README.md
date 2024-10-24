@@ -6,7 +6,7 @@
 
 # Monitoring Microsoft SQL Server with Grafana
 
-As of October 2024, this [Grafana dashboard](https://grafana.com/grafana/dashboards/21378-microsoft-sql-server-dashboard/) has been downloaded over **700 times** since its release on June 20, 2024.
+As of October 2024, this [Grafana dashboard](https://grafana.com/grafana/dashboards/21378-microsoft-sql-server-dashboard/) has been downloaded over **800 times** since its release on June 20, 2024.
 
 Example of the metrics you should expect to retrieve; the detailed list of exported metrics is maintained [here](docs/metrics.md).
 
