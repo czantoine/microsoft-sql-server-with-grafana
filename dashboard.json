@@ -33,7 +33,7 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "10.3.1"
+      "version": "11.2.0"
     },
     {
       "type": "datasource",
@@ -113,7 +113,8 @@
     {
       "datasource": {
         "type": "mssql",
-        "uid": ""
+        "uid": "${DS_MSSQL}"
+
       },
       "gridPos": {
         "h": 6,
@@ -131,13 +132,15 @@
         "content": "\n<div>\n  <img style=\"height: 80%;width: 80%;display: block;margin: auto auto;\" src=\"https://www.svgrepo.com/show/303229/microsoft-sql-server-logo.svg\"/>\n</div>",
         "mode": "html"
       },
-      "pluginVersion": "10.3.1",
+      "pluginVersion": "11.2.0",
       "targets": [
         {
-          "dataset": "WEM",
+          "dataset": "DemoDB",
+
           "datasource": {
             "type": "mssql",
-            "uid": ""
+            "uid": "${DS_MSSQL}"
+
           },
           "editorMode": "code",
           "format": "table",
@@ -168,7 +171,8 @@
     {
       "datasource": {
         "type": "mssql",
-        "uid": ""
+        "uid": "${DS_MSSQL}"
+
       },
       "fieldConfig": {
         "defaults": {
@@ -186,8 +190,8 @@
               }
             ]
           },
-          "unit": "short",
-          "unitScale": true
+          "unit": "short"
+
         },
         "overrides": []
       },
@@ -203,6 +207,7 @@
         "graphMode": "area",
         "justifyMode": "auto",
         "orientation": "auto",
+        "percentChangeColorMode": "standard",
         "reduceOptions": {
           "calcs": [],
           "fields": "/.*/",
@@ -212,13 +217,15 @@
         "textMode": "value",
         "wideLayout": true
       },
-      "pluginVersion": "10.3.1",
+      "pluginVersion": "11.2.0",
       "targets": [
         {
-          "dataset": "WEM",
+          "dataset": "DemoDB",
+
           "datasource": {
             "type": "mssql",
-            "uid": ""
+            "uid": "${DS_MSSQL}"
+
           },
           "editorMode": "code",
           "format": "table",
@@ -249,7 +256,8 @@
     {
       "datasource": {
         "type": "mssql",
-        "uid": ""
+        "uid": "${DS_MSSQL}"
+
       },
       "fieldConfig": {
         "defaults": {
@@ -269,8 +277,9 @@
                 "value": 80
               }
             ]
-          },
-          "unitScale": true
+          }
+
+
         },
         "overrides": []
       },
@@ -299,13 +308,14 @@
         "text": {},
         "valueMode": "text"
       },
-      "pluginVersion": "10.3.1",
+      "pluginVersion": "11.2.0",
       "targets": [
         {
           "dataset": "_DBA",
           "datasource": {
             "type": "mssql",
-            "uid": ""
+            "uid": "${DS_MSSQL}"
+
           },
           "editorMode": "code",
           "format": "table",
@@ -337,7 +347,8 @@
     {
       "datasource": {
         "type": "mssql",
-        "uid": ""
+        "uid": "${DS_MSSQL}"
+
       },
       "fieldConfig": {
         "defaults": {
@@ -367,8 +378,8 @@
               }
             ]
           },
-          "unit": "date",
-          "unitScale": false
+          "unit": "date"
+
         },
         "overrides": []
       },
@@ -392,13 +403,15 @@
         },
         "showHeader": false
       },
-      "pluginVersion": "10.3.1",
+      "pluginVersion": "11.2.0",
       "targets": [
         {
-          "dataset": "WEM",
+          "dataset": "DemoDB",
+
           "datasource": {
             "type": "mssql",
-            "uid": ""
+            "uid": "${DS_MSSQL}"
+
           },
           "editorMode": "code",
           "format": "table",
@@ -443,7 +456,8 @@
     {
       "datasource": {
         "type": "mssql",
-        "uid": ""
+        "uid": "${DS_MSSQL}"
+
       },
       "fieldConfig": {
         "defaults": {
@@ -463,8 +477,9 @@
                 "value": 80
               }
             ]
-          },
-          "unitScale": true
+          }
+
+
         },
         "overrides": []
       },
@@ -491,13 +506,15 @@
         "sizing": "auto",
         "valueMode": "color"
       },
-      "pluginVersion": "10.3.1",
+      "pluginVersion": "11.2.0",
       "targets": [
         {
-          "dataset": "WEM",
+          "dataset": "DemoDB",
+
           "datasource": {
             "type": "mssql",
-            "uid": ""
+            "uid": "${DS_MSSQL}"
+
           },
           "editorMode": "code",
           "format": "table",
@@ -529,7 +546,8 @@
     {
       "datasource": {
         "type": "mssql",
-        "uid": ""
+        "uid": "${DS_MSSQL}"
+
       },
       "fieldConfig": {
         "defaults": {
@@ -552,8 +570,9 @@
                 "value": 85
               }
             ]
-          },
-          "unitScale": true
+          }
+
+
         },
         "overrides": []
       },
@@ -579,13 +598,15 @@
         "showThresholdMarkers": true,
         "sizing": "auto"
       },
-      "pluginVersion": "10.3.1",
+      "pluginVersion": "11.2.0",
       "targets": [
         {
-          "dataset": "WEM",
+          "dataset": "DemoDB",
+
           "datasource": {
             "type": "mssql",
-            "uid": ""
+            "uid": "${DS_MSSQL}"
+
           },
           "editorMode": "code",
           "format": "table",
@@ -617,7 +638,8 @@
     {
       "datasource": {
         "type": "mssql",
-        "uid": ""
+        "uid": "${DS_MSSQL}"
+
       },
       "fieldConfig": {
         "defaults": {
@@ -639,8 +661,9 @@
                 "value": 80
               }
             ]
-          },
-          "unitScale": true
+          }
+
+
         },
         "overrides": []
       },
@@ -669,13 +692,15 @@
         "sizing": "auto",
         "valueMode": "color"
       },
-      "pluginVersion": "10.3.1",
+      "pluginVersion": "11.2.0",
       "targets": [
         {
-          "dataset": "WEM",
+          "dataset": "DemoDB",
+
           "datasource": {
             "type": "mssql",
-            "uid": ""
+            "uid": "${DS_MSSQL}"
+
           },
           "editorMode": "code",
           "format": "table",
@@ -707,7 +732,8 @@
     {
       "datasource": {
         "type": "mssql",
-        "uid": ""
+        "uid": "${DS_MSSQL}"
+
       },
       "fieldConfig": {
         "defaults": {
@@ -729,8 +755,9 @@
                 "value": 85
               }
             ]
-          },
-          "unitScale": true
+          }
+
+
         },
         "overrides": []
       },
@@ -756,13 +783,15 @@
         "showThresholdMarkers": true,
         "sizing": "auto"
       },
-      "pluginVersion": "10.3.1",
+      "pluginVersion": "11.2.0",
       "targets": [
         {
-          "dataset": "FORECASTDB",
+          "dataset": "DemoDB",
+
           "datasource": {
             "type": "mssql",
-            "uid": ""
+            "uid": "${DS_MSSQL}"
+
           },
           "editorMode": "code",
           "format": "table",
@@ -794,7 +823,8 @@
     {
       "datasource": {
         "type": "mssql",
-        "uid": ""
+        "uid": "${DS_MSSQL}"
+
       },
       "fieldConfig": {
         "defaults": {
@@ -817,8 +847,9 @@
                 "value": 85
               }
             ]
-          },
-          "unitScale": true
+          }
+
+
         },
         "overrides": []
       },
@@ -844,13 +875,15 @@
         "showThresholdMarkers": true,
         "sizing": "auto"
       },
-      "pluginVersion": "10.3.1",
+      "pluginVersion": "11.2.0",
       "targets": [
         {
-          "dataset": "WEM",
+          "dataset": "DemoDB",
+
           "datasource": {
             "type": "mssql",
-            "uid": ""
+            "uid": "${DS_MSSQL}"
+
           },
           "editorMode": "code",
           "format": "table",
@@ -882,7 +915,8 @@
     {
       "datasource": {
         "type": "mssql",
-        "uid": ""
+        "uid": "${DS_MSSQL}"
+
       },
       "fieldConfig": {
         "defaults": {
@@ -903,8 +937,9 @@
                 "value": 80
               }
             ]
-          },
-          "unitScale": true
+          }
+
+
         },
         "overrides": []
       },
@@ -933,13 +968,14 @@
         "sizing": "auto",
         "valueMode": "color"
       },
-      "pluginVersion": "10.3.1",
+      "pluginVersion": "11.2.0",
       "targets": [
         {
           "dataset": "_DBA",
           "datasource": {
             "type": "mssql",
-            "uid": ""
+            "uid": "${DS_MSSQL}"
+
           },
           "editorMode": "code",
           "format": "table",
@@ -971,7 +1007,8 @@
     {
       "datasource": {
         "type": "mssql",
-        "uid": ""
+        "uid": "${DS_MSSQL}"
+
       },
       "fieldConfig": {
         "defaults": {
@@ -985,6 +1022,7 @@
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
+            "barWidthFactor": 0.6,
             "drawStyle": "line",
             "fillOpacity": 20,
             "gradientMode": "scheme",
@@ -1015,15 +1053,17 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
                 "value": 80
               }
             ]
-          },
-          "unitScale": true
+          }
+
+
         },
         "overrides": []
       },
@@ -1051,7 +1091,8 @@
           "dataset": "_DBA",
           "datasource": {
             "type": "mssql",
-            "uid": ""
+            "uid": "${DS_MSSQL}"
+
           },
           "editorMode": "code",
           "format": "table",
@@ -1083,7 +1124,8 @@
     {
       "datasource": {
         "type": "mssql",
-        "uid": ""
+        "uid": "${DS_MSSQL}"
+
       },
       "fieldConfig": {
         "defaults": {
@@ -1095,15 +1137,17 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
                 "value": 80
               }
             ]
-          },
-          "unitScale": true
+          }
+
+
         },
         "overrides": []
       },
@@ -1130,13 +1174,14 @@
         "sizing": "auto",
         "valueMode": "color"
       },
-      "pluginVersion": "10.3.1",
+      "pluginVersion": "11.2.0",
       "targets": [
         {
           "dataset": "_DBA",
           "datasource": {
             "type": "mssql",
-            "uid": ""
+            "uid": "${DS_MSSQL}"
+
           },
           "editorMode": "code",
           "format": "table",
@@ -1181,7 +1226,8 @@
     {
       "datasource": {
         "type": "mssql",
-        "uid": ""
+        "uid": "${DS_MSSQL}"
+
       },
       "fieldConfig": {
         "defaults": {
@@ -1190,7 +1236,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
@@ -1198,8 +1245,8 @@
               }
             ]
           },
-          "unit": "short",
-          "unitScale": true
+          "unit": "short"
+
         },
         "overrides": []
       },
@@ -1215,6 +1262,7 @@
         "graphMode": "none",
         "justifyMode": "auto",
         "orientation": "auto",
+        "percentChangeColorMode": "standard",
         "reduceOptions": {
           "calcs": [
             "lastNotNull"
@@ -1226,13 +1274,14 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "10.3.1",
+      "pluginVersion": "11.2.0",
       "targets": [
         {
           "dataset": "_DBA",
           "datasource": {
             "type": "mssql",
-            "uid": ""
+            "uid": "${DS_MSSQL}"
+
           },
           "editorMode": "code",
           "format": "table",
@@ -1264,7 +1313,8 @@
     {
       "datasource": {
         "type": "mssql",
-        "uid": ""
+        "uid": "${DS_MSSQL}"
+
       },
       "fieldConfig": {
         "defaults": {
@@ -1276,15 +1326,17 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
                 "value": 80.0002
               }
             ]
-          },
-          "unitScale": true
+          }
+
+
         },
         "overrides": []
       },
@@ -1313,13 +1365,15 @@
         "sizing": "auto",
         "valueMode": "color"
       },
-      "pluginVersion": "10.3.1",
+      "pluginVersion": "11.2.0",
       "targets": [
         {
-          "dataset": "WEM",
+          "dataset": "DemoDB",
+
           "datasource": {
             "type": "mssql",
-            "uid": ""
+            "uid": "${DS_MSSQL}"
+
           },
           "editorMode": "code",
           "format": "table",
@@ -1351,7 +1405,8 @@
     {
       "datasource": {
         "type": "mssql",
-        "uid": ""
+        "uid": "${DS_MSSQL}"
+
       },
       "fieldConfig": {
         "defaults": {
@@ -1384,7 +1439,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
@@ -1392,8 +1448,8 @@
               }
             ]
           },
-          "unit": "short",
-          "unitScale": true
+          "unit": "short"
+
         },
         "overrides": []
       },
@@ -1427,10 +1483,12 @@
       },
       "targets": [
         {
-          "dataset": "WEM",
+          "dataset": "DemoDB",
+
           "datasource": {
             "type": "mssql",
-            "uid": ""
+            "uid": "${DS_MSSQL}"
+
           },
           "editorMode": "code",
           "format": "table",
@@ -1462,7 +1520,8 @@
     {
       "datasource": {
         "type": "mssql",
-        "uid": ""
+        "uid": "${DS_MSSQL}"
+
       },
       "fieldConfig": {
         "defaults": {
@@ -1474,15 +1533,17 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
                 "value": 80
               }
             ]
-          },
-          "unitScale": true
+          }
+
+
         },
         "overrides": []
       },
@@ -1511,13 +1572,15 @@
         "sizing": "auto",
         "valueMode": "color"
       },
-      "pluginVersion": "10.3.1",
+      "pluginVersion": "11.2.0",
       "targets": [
         {
-          "dataset": "WEM",
+          "dataset": "DemoDB",
+
           "datasource": {
             "type": "mssql",
-            "uid": ""
+            "uid": "${DS_MSSQL}"
+
           },
           "editorMode": "code",
           "format": "table",
@@ -1549,7 +1612,8 @@
     {
       "datasource": {
         "type": "mssql",
-        "uid": ""
+        "uid": "${DS_MSSQL}"
+
       },
       "fieldConfig": {
         "defaults": {
@@ -1558,7 +1622,8 @@
             "mode": "percentage",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "orange",
@@ -1569,8 +1634,9 @@
                 "value": 85
               }
             ]
-          },
-          "unitScale": true
+          }
+
+
         },
         "overrides": []
       },
@@ -1596,13 +1662,14 @@
         "showThresholdMarkers": true,
         "sizing": "auto"
       },
-      "pluginVersion": "10.3.1",
+      "pluginVersion": "11.2.0",
       "targets": [
         {
           "dataset": "_DBA",
           "datasource": {
             "type": "mssql",
-            "uid": ""
+            "uid": "${DS_MSSQL}"
+
           },
           "editorMode": "code",
           "format": "table",
@@ -1634,7 +1701,8 @@
     {
       "datasource": {
         "type": "mssql",
-        "uid": ""
+        "uid": "${DS_MSSQL}"
+
       },
       "fieldConfig": {
         "defaults": {
@@ -1648,8 +1716,8 @@
               "viz": false
             }
           },
-          "mappings": [],
-          "unitScale": true
+          "mappings": []
+
         },
         "overrides": []
       },
@@ -1687,10 +1755,12 @@
       },
       "targets": [
         {
-          "dataset": "WEM",
+          "dataset": "DemoDB",
+
           "datasource": {
             "type": "mssql",
-            "uid": ""
+            "uid": "${DS_MSSQL}"
+
           },
           "editorMode": "code",
           "format": "table",
@@ -1722,7 +1792,8 @@
     {
       "datasource": {
         "type": "mssql",
-        "uid": ""
+        "uid": "${DS_MSSQL}"
+
       },
       "fieldConfig": {
         "defaults": {
@@ -1734,15 +1805,17 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
                 "value": 80
               }
             ]
-          },
-          "unitScale": true
+          }
+
+
         },
         "overrides": []
       },
@@ -1771,13 +1844,14 @@
         "sizing": "auto",
         "valueMode": "color"
       },
-      "pluginVersion": "10.3.1",
+      "pluginVersion": "11.2.0",
       "targets": [
         {
           "dataset": "_DBA",
           "datasource": {
             "type": "mssql",
-            "uid": ""
+            "uid": "${DS_MSSQL}"
+
           },
           "editorMode": "code",
           "format": "table",
@@ -1822,7 +1896,8 @@
     {
       "datasource": {
         "type": "mssql",
-        "uid": ""
+        "uid": "${DS_MSSQL}"
+
       },
       "fieldConfig": {
         "defaults": {
@@ -1834,15 +1909,17 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
                 "value": 80
               }
             ]
-          },
-          "unitScale": true
+          }
+
+
         },
         "overrides": []
       },
@@ -1871,13 +1948,15 @@
         "sizing": "auto",
         "valueMode": "color"
       },
-      "pluginVersion": "10.3.1",
+      "pluginVersion": "11.2.0",
       "targets": [
         {
-          "dataset": "WEM",
+          "dataset": "DemoDB",
+
           "datasource": {
             "type": "mssql",
-            "uid": ""
+            "uid": "${DS_MSSQL}"
+
           },
           "editorMode": "code",
           "format": "table",
@@ -1909,7 +1988,8 @@
     {
       "datasource": {
         "type": "mssql",
-        "uid": ""
+        "uid": "${DS_MSSQL}"
+
       },
       "fieldConfig": {
         "defaults": {
@@ -1942,7 +2022,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
@@ -1950,8 +2031,8 @@
               }
             ]
           },
-          "unit": "short",
-          "unitScale": true
+          "unit": "short"
+
         },
         "overrides": []
       },
@@ -1986,10 +2067,12 @@
       "pluginVersion": "10.3.1",
       "targets": [
         {
-          "dataset": "WEM",
+          "dataset": "DemoDB",
+
           "datasource": {
             "type": "mssql",
-            "uid": ""
+            "uid": "${DS_MSSQL}"
+
           },
           "editorMode": "code",
           "format": "table",
@@ -2021,7 +2104,8 @@
     {
       "datasource": {
         "type": "mssql",
-        "uid": ""
+        "uid": "${DS_MSSQL}"
+
       },
       "fieldConfig": {
         "defaults": {
@@ -2055,7 +2139,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
@@ -2063,8 +2148,8 @@
               }
             ]
           },
-          "unit": "short",
-          "unitScale": true
+          "unit": "short"
+
         },
         "overrides": []
       },
@@ -2098,10 +2183,12 @@
       },
       "targets": [
         {
-          "dataset": "WEM",
+          "dataset": "DemoDB",
+
           "datasource": {
             "type": "mssql",
-            "uid": ""
+            "uid": "${DS_MSSQL}"
+
           },
           "editorMode": "code",
           "format": "table",
@@ -2133,7 +2220,8 @@
     {
       "datasource": {
         "type": "mssql",
-        "uid": ""
+        "uid": "${DS_MSSQL}"
+
       },
       "fieldConfig": {
         "defaults": {
@@ -2145,7 +2233,8 @@
             "mode": "percentage",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "orange",
@@ -2156,8 +2245,9 @@
                 "value": 85
               }
             ]
-          },
-          "unitScale": true
+          }
+
+
         },
         "overrides": []
       },
@@ -2184,13 +2274,14 @@
           "titleSize": 1
         }
       },
-      "pluginVersion": "10.3.1",
+      "pluginVersion": "11.2.0",
       "targets": [
         {
           "dataset": "_DBA",
           "datasource": {
             "type": "mssql",
-            "uid": ""
+            "uid": "${DS_MSSQL}"
+
           },
           "editorMode": "code",
           "format": "table",
@@ -2235,7 +2326,8 @@
     {
       "datasource": {
         "type": "mssql",
-        "uid": ""
+        "uid": "${DS_MSSQL}"
+
       },
       "description": "modify the max with the size of your disk associated with the database",
       "fieldConfig": {
@@ -2250,7 +2342,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
@@ -2258,8 +2351,8 @@
               }
             ]
           },
-          "unit": "decmbytes",
-          "unitScale": true
+          "unit": "decmbytes"
+
         },
         "overrides": []
       },
@@ -2288,13 +2381,15 @@
         "sizing": "auto",
         "valueMode": "color"
       },
-      "pluginVersion": "10.3.1",
+      "pluginVersion": "11.2.0",
       "targets": [
         {
-          "dataset": "WEM",
+          "dataset": "DemoDB",
+
           "datasource": {
             "type": "mssql",
-            "uid": ""
+            "uid": "${DS_MSSQL}"
+
           },
           "editorMode": "code",
           "format": "table",
@@ -2326,7 +2421,8 @@
     {
       "datasource": {
         "type": "mssql",
-        "uid": ""
+        "uid": "${DS_MSSQL}"
+
       },
       "description": "modify the max with the size of your disk associated with the database",
       "fieldConfig": {
@@ -2341,7 +2437,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
@@ -2349,8 +2446,8 @@
               }
             ]
           },
-          "unit": "decmbytes",
-          "unitScale": true
+          "unit": "decmbytes"
+
         },
         "overrides": []
       },
@@ -2379,13 +2476,15 @@
         "sizing": "auto",
         "valueMode": "color"
       },
-      "pluginVersion": "10.3.1",
+      "pluginVersion": "11.2.0",
       "targets": [
         {
-          "dataset": "WEM",
+          "dataset": "DemoDB",
+
           "datasource": {
             "type": "mssql",
-            "uid": ""
+            "uid": "${DS_MSSQL}"
+
           },
           "editorMode": "code",
           "format": "table",
@@ -2417,7 +2516,8 @@
     {
       "datasource": {
         "type": "mssql",
-        "uid": ""
+        "uid": "${DS_MSSQL}"
+
       },
       "fieldConfig": {
         "defaults": {
@@ -2451,7 +2551,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
@@ -2459,8 +2560,8 @@
               }
             ]
           },
-          "unit": "decmbytes",
-          "unitScale": true
+          "unit": "decmbytes"
+
         },
         "overrides": []
       },
@@ -2496,7 +2597,8 @@
         {
           "datasource": {
             "type": "mssql",
-            "uid": ""
+            "uid": "${DS_MSSQL}"
+
           },
           "editorMode": "code",
           "format": "table",
@@ -2528,7 +2630,8 @@
     {
       "datasource": {
         "type": "mssql",
-        "uid": ""
+        "uid": "${DS_MSSQL}"
+
       },
       "description": "modify the max with the size of your disk associated with the database",
       "fieldConfig": {
@@ -2543,7 +2646,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "yellow",
@@ -2559,8 +2663,8 @@
               }
             ]
           },
-          "unit": "decmbytes",
-          "unitScale": true
+          "unit": "decmbytes"
+
         },
         "overrides": []
       },
@@ -2589,13 +2693,15 @@
         "sizing": "auto",
         "valueMode": "color"
       },
-      "pluginVersion": "10.3.1",
+      "pluginVersion": "11.2.0",
       "targets": [
         {
-          "dataset": "WEM",
+          "dataset": "DemoDB",
+
           "datasource": {
             "type": "mssql",
-            "uid": ""
+            "uid": "${DS_MSSQL}"
+
           },
           "editorMode": "code",
           "format": "table",
@@ -2627,7 +2733,8 @@
     {
       "datasource": {
         "type": "mssql",
-        "uid": ""
+        "uid": "${DS_MSSQL}"
+
       },
       "fieldConfig": {
         "defaults": {
@@ -2636,7 +2743,8 @@
             "mode": "percentage",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "orange",
@@ -2647,8 +2755,9 @@
                 "value": 85
               }
             ]
-          },
-          "unitScale": true
+          }
+
+
         },
         "overrides": []
       },
@@ -2674,13 +2783,14 @@
         "showThresholdMarkers": true,
         "sizing": "auto"
       },
-      "pluginVersion": "10.3.1",
+      "pluginVersion": "11.2.0",
       "targets": [
         {
           "dataset": "_DBA",
           "datasource": {
             "type": "mssql",
-            "uid": ""
+            "uid": "${DS_MSSQL}"
+
           },
           "editorMode": "code",
           "format": "table",
@@ -2712,7 +2822,8 @@
     {
       "datasource": {
         "type": "mssql",
-        "uid": ""
+        "uid": "${DS_MSSQL}"
+
       },
       "fieldConfig": {
         "defaults": {
@@ -2727,8 +2838,8 @@
             }
           },
           "fieldMinMax": false,
-          "mappings": [],
-          "unitScale": true
+          "mappings": []
+
         },
         "overrides": []
       },
@@ -2768,7 +2879,8 @@
           "dataset": "_DBA",
           "datasource": {
             "type": "mssql",
-            "uid": ""
+            "uid": "${DS_MSSQL}"
+
           },
           "editorMode": "code",
           "format": "table",
@@ -2800,7 +2912,8 @@
     {
       "datasource": {
         "type": "mssql",
-        "uid": ""
+        "uid": "${DS_MSSQL}"
+
       },
       "fieldConfig": {
         "defaults": {
@@ -2816,7 +2929,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "yellow",
@@ -2831,8 +2945,9 @@
                 "value": 90
               }
             ]
-          },
-          "unitScale": true
+          }
+
+
         },
         "overrides": [
           {
@@ -2910,13 +3025,14 @@
         },
         "showHeader": true
       },
-      "pluginVersion": "10.3.1",
+      "pluginVersion": "11.2.0",
       "targets": [
         {
           "dataset": "_DBA",
           "datasource": {
             "type": "mssql",
-            "uid": ""
+            "uid": "${DS_MSSQL}"
+
           },
           "editorMode": "code",
           "format": "table",
@@ -2948,7 +3064,8 @@
     {
       "datasource": {
         "type": "mssql",
-        "uid": ""
+        "uid": "${DS_MSSQL}"
+
       },
       "fieldConfig": {
         "defaults": {
@@ -2962,7 +3079,8 @@
             "mode": "percentage",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "orange",
@@ -2973,8 +3091,9 @@
                 "value": 85
               }
             ]
-          },
-          "unitScale": true
+          }
+
+
         },
         "overrides": []
       },
@@ -3000,13 +3119,15 @@
         "showThresholdMarkers": true,
         "sizing": "auto"
       },
-      "pluginVersion": "10.3.1",
+      "pluginVersion": "11.2.0",
       "targets": [
         {
-          "dataset": "WEM",
+          "dataset": "DemoDB",
+
           "datasource": {
             "type": "mssql",
-            "uid": ""
+            "uid": "${DS_MSSQL}"
+
           },
           "editorMode": "code",
           "format": "table",
@@ -3038,7 +3159,8 @@
     {
       "datasource": {
         "type": "mssql",
-        "uid": ""
+        "uid": "${DS_MSSQL}"
+
       },
       "fieldConfig": {
         "defaults": {
@@ -3047,7 +3169,8 @@
             "mode": "percentage",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "orange",
@@ -3058,8 +3181,9 @@
                 "value": 85
               }
             ]
-          },
-          "unitScale": true
+          }
+
+
         },
         "overrides": []
       },
@@ -3085,13 +3209,15 @@
         "showThresholdMarkers": true,
         "sizing": "auto"
       },
-      "pluginVersion": "10.3.1",
+      "pluginVersion": "11.2.0",
       "targets": [
         {
-          "dataset": "WEM",
+          "dataset": "DemoDB",
+
           "datasource": {
             "type": "mssql",
-            "uid": ""
+            "uid": "${DS_MSSQL}"
+
           },
           "editorMode": "code",
           "format": "table",
@@ -3123,7 +3249,8 @@
     {
       "datasource": {
         "type": "mssql",
-        "uid": ""
+        "uid": "${DS_MSSQL}"
+
       },
       "fieldConfig": {
         "defaults": {
@@ -3135,15 +3262,17 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
                 "value": 80
               }
             ]
-          },
-          "unitScale": true
+          }
+
+
         },
         "overrides": []
       },
@@ -3172,13 +3301,14 @@
         "sizing": "auto",
         "valueMode": "color"
       },
-      "pluginVersion": "10.3.1",
+      "pluginVersion": "11.2.0",
       "targets": [
         {
           "dataset": "_DBA",
           "datasource": {
             "type": "mssql",
-            "uid": ""
+            "uid": "${DS_MSSQL}"
+
           },
           "editorMode": "code",
           "format": "table",
@@ -3210,7 +3340,8 @@
     {
       "datasource": {
         "type": "mssql",
-        "uid": ""
+        "uid": "${DS_MSSQL}"
+
       },
       "fieldConfig": {
         "defaults": {
@@ -3222,15 +3353,17 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
                 "value": 80
               }
             ]
-          },
-          "unitScale": true
+          }
+
+
         },
         "overrides": []
       },
@@ -3259,13 +3392,14 @@
         "sizing": "auto",
         "valueMode": "color"
       },
-      "pluginVersion": "10.3.1",
+      "pluginVersion": "11.2.0",
       "targets": [
         {
           "dataset": "_DBA",
           "datasource": {
             "type": "mssql",
-            "uid": ""
+            "uid": "${DS_MSSQL}"
+
           },
           "editorMode": "code",
           "format": "table",
@@ -3310,7 +3444,8 @@
     {
       "datasource": {
         "type": "mssql",
-        "uid": ""
+        "uid": "${DS_MSSQL}"
+
       },
       "description": "Last 7 days",
       "fieldConfig": {
@@ -3323,15 +3458,17 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
                 "value": 80
               }
             ]
-          },
-          "unitScale": true
+          }
+
+
         },
         "overrides": []
       },
@@ -3362,13 +3499,14 @@
         },
         "valueMode": "color"
       },
-      "pluginVersion": "10.3.1",
+      "pluginVersion": "11.2.0",
       "targets": [
         {
           "dataset": "_DBA",
           "datasource": {
             "type": "mssql",
-            "uid": ""
+            "uid": "${DS_MSSQL}"
+
           },
           "editorMode": "code",
           "format": "table",
@@ -3400,7 +3538,8 @@
     {
       "datasource": {
         "type": "mssql",
-        "uid": ""
+        "uid": "${DS_MSSQL}"
+
       },
       "fieldConfig": {
         "defaults": {
@@ -3417,7 +3556,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "yellow",
@@ -3432,8 +3572,9 @@
                 "value": 70
               }
             ]
-          },
-          "unitScale": true
+          }
+
+
         },
         "overrides": [
           {
@@ -3523,13 +3664,14 @@
         },
         "showHeader": false
       },
-      "pluginVersion": "10.3.1",
+      "pluginVersion": "11.2.0",
       "targets": [
         {
           "dataset": "_DBA",
           "datasource": {
             "type": "mssql",
-            "uid": ""
+            "uid": "${DS_MSSQL}"
+
           },
           "editorMode": "code",
           "format": "table",
@@ -3561,7 +3703,8 @@
     {
       "datasource": {
         "type": "mssql",
-        "uid": ""
+        "uid": "${DS_MSSQL}"
+
       },
       "fieldConfig": {
         "defaults": {
@@ -3578,15 +3721,17 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
                 "value": 80
               }
             ]
-          },
-          "unitScale": true
+          }
+
+
         },
         "overrides": [
           {
@@ -3664,13 +3809,14 @@
         },
         "showHeader": true
       },
-      "pluginVersion": "10.3.1",
+      "pluginVersion": "11.2.0",
       "targets": [
         {
           "dataset": "_DBA",
           "datasource": {
             "type": "mssql",
-            "uid": ""
+            "uid": "${DS_MSSQL}"
+
           },
           "editorMode": "code",
           "format": "table",
@@ -3702,7 +3848,8 @@
     {
       "datasource": {
         "type": "mssql",
-        "uid": ""
+        "uid": "${DS_MSSQL}"
+
       },
       "description": "",
       "fieldConfig": {
@@ -3719,7 +3866,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "purple"
+                "color": "purple",
+                "value": null
               },
               {
                 "color": "yellow",
@@ -3734,8 +3882,9 @@
                 "value": 70
               }
             ]
-          },
-          "unitScale": true
+          }
+
+
         },
         "overrides": [
           {
@@ -3806,13 +3955,14 @@
         },
         "showHeader": true
       },
-      "pluginVersion": "10.3.1",
+      "pluginVersion": "11.2.0",
       "targets": [
         {
           "dataset": "_DBA",
           "datasource": {
             "type": "mssql",
-            "uid": ""
+            "uid": "${DS_MSSQL}"
+
           },
           "editorMode": "code",
           "format": "table",
@@ -3844,7 +3994,8 @@
     {
       "datasource": {
         "type": "mssql",
-        "uid": ""
+        "uid": "${DS_MSSQL}"
+
       },
       "fieldConfig": {
         "defaults": {
@@ -3860,15 +4011,17 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
                 "value": 80
               }
             ]
-          },
-          "unitScale": true
+          }
+
+
         },
         "overrides": [
           {
@@ -3940,13 +4093,14 @@
         },
         "showHeader": true
       },
-      "pluginVersion": "10.3.1",
+      "pluginVersion": "11.2.0",
       "targets": [
         {
           "dataset": "_DBA",
           "datasource": {
             "type": "mssql",
-            "uid": ""
+            "uid": "${DS_MSSQL}"
+
           },
           "editorMode": "code",
           "format": "table",
@@ -3990,6 +4144,6 @@
   "timezone": "",
   "title": "Microsoft SQL Server Dashboard",
   "uid": "bff36b75-3eae-44b8-994b-c7a87274d162",
-  "version": 84,
+  "version": 1,
   "weekStart": ""
 }

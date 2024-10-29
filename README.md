@@ -2,11 +2,13 @@
 	<a href="https://twitter.com/cz_antoine"><img alt="Twitter" src="https://img.shields.io/twitter/follow/cz_antoine?style=social"></a>
 	<a href="https://www.linkedin.com/in/antoine-cichowicz-837575b1"><img alt="Linkedin" src="https://img.shields.io/badge/-Antoine-blue?style=flat-square&logo=Linkedin&logoColor=white"></a>
 	<a href="https://github.com/czantoine/microsoft-sql-server-with-grafana"><img alt="Stars" src="https://img.shields.io/github/stars/czantoine/microsoft-sql-server-with-grafana"></a>
+	<a href="https://github.com/czantoine/microsoft-sql-server-with-grafana"><img alt="Issues" src="https://img.shields.io/github/issues/czantoine/microsoft-sql-server-with-grafana"></a>
+	<img alt="Last Commit" src="https://img.shields.io/github/last-commit/czantoine/microsoft-sql-server-with-grafana">
 </p>
 
 # Monitoring Microsoft SQL Server with Grafana
 
-As of October 2024, this [Grafana dashboard](https://grafana.com/grafana/dashboards/21378-microsoft-sql-server-dashboard/) has been downloaded over **800 times** since its release on June 20, 2024.
+As of October 2024, this [Grafana dashboard](https://grafana.com/grafana/dashboards/21378-microsoft-sql-server-dashboard/) has been downloaded over **900 times** since its release on June 20, 2024.
 
 Example of the metrics you should expect to retrieve; the detailed list of exported metrics is maintained [here](docs/metrics.md).
 

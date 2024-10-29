@@ -1,0 +1,40 @@
+name: "✨ Feature Request"
+description: Suggest an idea to improve the monitoring dashboard
+title: "[FEATURE] Feature description"
+labels: ["enhancement"]
+assignees: ''
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ### ✨ Feature Description
+        A clear and concise description of the feature you want to add or improve.
+
+  - type: textarea
+    attributes:
+      label: 💡 Justification
+      description: Explain why this feature would be useful.
+    validations:
+      required: true
+
+  - type: dropdown
+    attributes:
+      label: 🔍 Area of Improvement
+      description: Which area should this feature target?
+      options:
+        - Dashboard Panel
+        - SQL Query
+        - Data Source Connection
+        - Quickstart Guide
+        - Other
+
+  - type: textarea
+    attributes:
+      label: 🛠️ Proposed Solution
+      description: Describe how you think this feature could be implemented.
+
+  - type: textarea
+    attributes:
+      label: ℹ️ Additional Information
+      description: Add any other context or resources here.

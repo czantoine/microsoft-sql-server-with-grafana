@@ -1,0 +1,35 @@
+name: "📚 Documentation Request"
+description: Request an update or improvement to the documentation
+title: "[DOC] Documentation request description"
+labels: ["documentation"]
+assignees: ''
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ### 📚 Documentation Subject
+        Specify the section or topic of the documentation that needs updating.
+
+  - type: dropdown
+    attributes:
+      label: 📝 Area to Document
+      description: Which area needs documentation?
+      options:
+        - Dashboard Panel
+        - SQL Query
+        - Data Source Connection
+        - Quickstart Guide
+        - Other
+
+  - type: textarea
+    attributes:
+      label: 📈 Improvements Needed
+      description: Describe what could be added or improved in the documentation.
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: ℹ️ Additional Information
+      description: Add any other context that could help improve the documentation.

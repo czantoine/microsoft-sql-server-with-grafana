@@ -1,0 +1,35 @@
+name: "🙏 Help Wanted"
+description: Request help with a specific area or issue
+title: "[HELP] Describe the help needed"
+labels: ["help wanted"]
+assignees: ''
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ### 🙏 Help Needed
+        Describe the assistance you are seeking.
+
+  - type: dropdown
+    attributes:
+      label: 🛠️ Area of Help
+      description: Indicate which area you need help with.
+      options:
+        - Dashboard Panel
+        - SQL Query
+        - Data Source Connection
+        - Quickstart Guide
+        - Other
+
+  - type: textarea
+    attributes:
+      label: 📋 Context
+      description: Provide any relevant context or background information.
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: 💬 Additional Information
+      description: Add any additional details that could help others assist you.
