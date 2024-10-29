@@ -8,8 +8,8 @@ datasources:
     user: sa
     password: YourStrong@Passw0rd
     database: DemoDB
+    isDefault: true
     jsonData:
       sslmode: disable
     secureJsonData:
       password: YourStrong@Passw0rd
-
