@@ -2,7 +2,6 @@ name: "🙏 Help Wanted"
 description: Request help with a specific area or issue
 title: "[HELP] Describe the help needed"
 labels: ["help wanted"]
-assignees: ''
 
 body:
   - type: markdown
