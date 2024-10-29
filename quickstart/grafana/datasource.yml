@@ -1,7 +1,7 @@
 apiVersion: 1
 
 datasources:
-  - name: 'mssql'
+  - name: 'DS_MSSQL'
     type: 'mssql'
     access: proxy
     url: sqlserver:1433
