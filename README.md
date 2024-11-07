@@ -18,6 +18,9 @@ A Docker Compose setup is available if you wish to test the dashboard. Available
 
 This is a comprehensive Grafana dashboard designed for monitoring Microsoft SQL Server. It provides real-time insights into your SQL Server environment, making it easy for both technical and non-technical users to understand the performance of their SQL Server instances.
 
+## Data Source Setup
+The data source for this dashboard can directly be your SQL Server database instance. Ensure that the SQL Server instance is accessible to Grafana.
+
 ### General
 - **Database name**: Displays the database name.
 - **Uptime**: Displays the SQL Server start time.
