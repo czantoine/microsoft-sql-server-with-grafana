@@ -9,7 +9,7 @@
 # Monitoring Microsoft SQL Server with Grafana
 
 <a href="https://grafana.com/dashboards/21378">
-    <img src="https://grafana-dashboard-badge.netlify.app/.netlify/functions/api/badge?id_dashboard=21378" alt="Grafana Dashboard Badge">
+    <img src="https://grafana-dashboard-badge.netlify.app/.netlify/functions/api/badge?id_dashboard=21378&logo=true" alt="Grafana Dashboard Badge">
 </a>
 
 Example of the metrics you should expect to retrieve; the detailed list of exported metrics is maintained [here](docs/metrics.md).
