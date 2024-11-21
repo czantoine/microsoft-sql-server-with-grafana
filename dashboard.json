@@ -611,7 +611,7 @@
           "editorMode": "code",
           "format": "table",
           "rawQuery": true,
-          "rawSql": "SELECT \n    qs.total_elapsed_time / qs.execution_count / 1000.0 AS 'Avg Duration ms',\n    qs.execution_count AS 'Exuction Count',\n    SUBSTRING(qt.text, qs.statement_start_offset/2,\n              (CASE\n                  WHEN qs.statement_end_offset = -1 THEN LEN(CONVERT(NVARCHAR(MAX), qt.text)) * 2\n                  ELSE qs.statement_end_offset\n               END - qs.statement_start_offset)/2) AS query_text\nFROM sys.dm_exec_query_stats qs\nCROSS APPLY sys.dm_exec_sql_text(qs.sql_handle) qt\nORDER BY 'Avg Duration ms' DESC;\n",
+          "rawSql": "SELECT \n    qs.total_elapsed_time / qs.execution_count / 1000.0 AS 'Avg Duration ms',\n    qs.execution_count AS 'Execution Count',\n    SUBSTRING(qt.text, qs.statement_start_offset/2,\n              (CASE\n                  WHEN qs.statement_end_offset = -1 THEN LEN(CONVERT(NVARCHAR(MAX), qt.text)) * 2\n                  ELSE qs.statement_end_offset\n               END - qs.statement_start_offset)/2) AS query_text\nFROM sys.dm_exec_query_stats qs\nCROSS APPLY sys.dm_exec_sql_text(qs.sql_handle) qt\nORDER BY 'Avg Duration ms' DESC;\n",
           "refId": "A",
           "sql": {
             "columns": [
