@@ -6,6 +6,10 @@
 	<img alt="Last Commit" src="https://img.shields.io/github/last-commit/czantoine/microsoft-sql-server-with-grafana">
 </p>
 
+If you enjoy my projects and want to support my work, consider buying me a coffee! ☕️
+
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/V7V22V693)
+
 # Monitoring Microsoft SQL Server with Grafana
 
 <a href="https://grafana.com/dashboards/21378">
