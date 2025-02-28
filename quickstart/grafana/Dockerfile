@@ -6,7 +6,7 @@ ENV GF_AUTH_ANONYMOUS_ENABLED=true
 
 RUN mkdir -p /var/lib/grafana/dashboards
 
-RUN curl -o /var/lib/grafana/dashboards/dashboard.json https://grafana.com/api/dashboards/21378/revisions/6/download
+RUN curl -o /var/lib/grafana/dashboards/dashboard.json https://grafana.com/api/dashboards/21378/revisions/7/download
 
 RUN sed -i 's/"uid": *"\${DS_MSSQL}"/"uid": ""/g' /var/lib/grafana/dashboards/dashboard.json
 
