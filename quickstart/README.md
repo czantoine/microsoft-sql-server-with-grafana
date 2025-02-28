@@ -16,7 +16,7 @@ git clone https://github.com/czantoine/microsoft-sql-server-with-grafana
 cd microsoft-sql-server-with-grafana/quickstart
 
 # Start Grafana and SQL Server containers !
-docker-compose up -d
+docker compose up -d
 ```
 
 You should now have a stack completely configured and accessible at these locations:
@@ -50,5 +50,5 @@ Example dashboards should be available at these addresses:
 ## Cleanup
 
 ```bash
-docker-compose down
+docker compose down
 ```

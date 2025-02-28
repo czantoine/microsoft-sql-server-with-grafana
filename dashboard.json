@@ -88,7 +88,7 @@
       }
     ]
   },
-  "description": "This is a comprehensive Microsoft SQL Server Dashboard designed to monitor key performance indicators. It provides real-time insights into your SQL Server environment. https://github.com/czantoine/microsoft-sql-server-with-grafana",
+  "description": "This is a comprehensive Microsoft SQL Server Dashboard designed to monitor key performance indicators. It provides real-time insights into your SQL Server environment.",
   "editable": true,
   "fiscalYearStartMonth": 0,
   "gnetId": 21378,
@@ -96,6 +96,20 @@
   "id": null,
   "links": [],
   "liveNow": false,
+  "links": [
+    {
+      "asDropdown": false,
+      "icon": "doc",
+      "includeVars": false,
+      "keepTime": false,
+      "tags": [],
+      "targetBlank": true,
+      "title": "GitHub",
+      "tooltip": "",
+      "type": "link",
+      "url": "https://github.com/czantoine/microsoft-sql-server-with-grafana/tree/main"
+    }
+  ],
   "panels": [
     {
       "collapsed": false,
