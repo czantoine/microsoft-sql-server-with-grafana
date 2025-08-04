@@ -93,3 +93,6 @@ You can directly find the [dashboard here](https://grafana.com/grafana/dashboard
 --- 
 
 If you find this project useful, please give it a star ⭐️ ! Your support is greatly appreciated. Also, feel free to contribute to this project. All contributions, whether bug fixes, improvements, or new features, are welcome!
+
+## Stargazers overt time
+[![Stargazers over time](https://starchart.cc/czantoine/microsoft-sql-server-with-grafana.svg?variant=adaptive)](https://starchart.cc/czantoine/microsoft-sql-server-with-grafana)
