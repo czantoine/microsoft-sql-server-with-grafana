@@ -154,13 +154,6 @@ SQL Agent job observability.
 
 ### Option 1: Docker Compose (recommended for testing)
 
-```bash
-cd quickstart
-docker-compose up -d
-```
-
-Then open Grafana at `http://localhost:3000` and import the dashboard.
-
 See the full [quickstart guide](quickstart/README.md) for details.
 
 ### Option 2: Import directly
