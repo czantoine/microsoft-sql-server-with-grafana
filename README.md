@@ -20,6 +20,17 @@ The detailed list of all exported metrics and their SQL queries is maintained [h
 
 A Docker Compose quickstart is available if you want to test the dashboard in minutes. Available [here](quickstart/README.md).
 
+<p align="center">
+  <b>Enjoying this project?</b><br>
+  If it saves you time or helps your SQL monitorin, you can support ongoing updates by buying me a coffee.
+</p>
+
+<p align="center">
+  <a href="https://ko-fi.com/V7V22V693">
+    <img alt="Buy me a coffee on Ko-fi" src="https://ko-fi.com/img/githubbutton_sm.svg">
+  </a>
+</p>
+
 ---
 
 ## ✨ What's New (v2)
