@@ -22,7 +22,7 @@ A Docker Compose quickstart is available if you want to test the dashboard in mi
 
 <p align="center">
   <b>Enjoying this project?</b><br>
-  If it saves you time or helps your SQL monitorin, you can support ongoing updates by buying me a coffee.
+  If it saves you time or helps your SQL Server monitoring, you can support ongoing updates by buying me a coffee.
 </p>
 
 <p align="center">
